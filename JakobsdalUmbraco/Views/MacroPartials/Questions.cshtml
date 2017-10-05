@@ -1,0 +1,21 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    var selection = Model.Content.Site().Children("qAndAQuestion")
+                        .Where(x => x.IsVisible());
+    var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
+    var questions= umbracoHelper.TypedSearch("qAndAQuestion");  
+    
+    
+    
+    
+     
+}
+
+<div class="questionsMacro">
+    @foreach (var item in questions)
+    {
+        <div class="col-xs-12 questionsMacro">
+            @Umbraco.RenderTemplate(item.Id)
+        </div>
+    }
+</div>

@@ -411,6 +411,7 @@
     <Content Include="bin\x86\sqlceqp40.dll" />
     <Content Include="bin\x86\sqlcese40.dll" />
     <Content Include="Controllers\productsController.controller.js" />
+    <Content Include="Controllers\qandaController.controller.js" />
     <Content Include="Media\1001\mainpagelogo.png" />
     <Content Include="Media\1002\produkt-bror-jakobs.jpg" />
     <Content Include="Media\1003\brorjakob-roktskinka-produkt.jpg" />
@@ -622,6 +623,8 @@
     <Content Include="Views\About.cshtml" />
     <Content Include="Views\Contact.cshtml" />
     <Content Include="Views\NewsAndPress.cshtml" />
+    <Content Include="Views\MacroPartials\Questions.cshtml" />
+    <Content Include="Views\QAndAQuestion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

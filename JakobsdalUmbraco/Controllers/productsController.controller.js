@@ -21,9 +21,6 @@ jdApp.controller('productsController', ['$scope', '$http','$location', '$routePa
         })
     }
 
-    var hey=function(){
-       var dummy="hey"
-    }
 
     $scope.getCategoryId = function (id) { 
         $scope.categoryId = id;

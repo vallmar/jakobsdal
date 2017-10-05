@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = null;
+}
+
+<div ng-controller="QAndAController">
+
+<div ng-click="toggleAnswer()">@Umbraco.Field("fraagan")</div>
+
+<div ng-if="showAnswer">@Umbraco.Field("svar")</div>
+
+</div>
