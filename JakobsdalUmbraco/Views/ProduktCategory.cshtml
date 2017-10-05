@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+
+
+        var header = Umbraco.Field("header");
+        var bodyText = Umbraco.Field("bodyText");
+        var dynamicMediaItem = Umbraco.Media(Umbraco.Field("Picture", recursive: true).ToString());
+
+        var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
+        var currentPage = umbracoHelper.AssignedContentItem;
+        var picture = currentPage.Properties.FirstOrDefault(i => i.PropertyTypeAlias == "picture").Value.TryConvertTo<dynamic>().Result;
+        var childrenUrl = "#";
+        if (currentPage.Children.Count() > 0)
+        {
+            childrenUrl = currentPage.Children.ToList()[0].Url;
+        }
+        Layout = Request.Path.ToString() == "/defaultproductcategorypage/" ? null : "~/Views/_layoutJd.cshtml";
+}
+
+<div>
+    <div class="col-xs-12">
+        <img src="@picture.Url" alt="" style="width:100%" />
+    </div>
+    <div class="col-xs-12">
+        <div><h4>@header</h4></div>
+        <span>@bodyText</span>
+        <a href="@childrenUrl">VISA PRODUKTER</a>
+    </div>
+</div>
+<div ng-controller="homePageController" ng-click="goto('fakeURl', 'gs', 'dafs', 'asdf')">Klicka här</div>

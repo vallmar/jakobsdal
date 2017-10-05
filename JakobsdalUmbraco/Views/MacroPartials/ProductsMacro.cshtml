@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+
+@{
+    var selection = Model.Content.Site().Children("produktCategory")
+                        .Where(x => x.IsVisible());
+    var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
+    var productCategorys= umbracoHelper.TypedSearch("produktCategory");  
+    
+    
+    
+    
+     
+}
+
+<div class="productCategoryMacro jdcontent">
+    @foreach (var item in productCategorys)
+    {
+        <div class="col-xs-12 productCategory">
+            @Umbraco.RenderTemplate(item.Id)
+        </div>
+    }
+</div>

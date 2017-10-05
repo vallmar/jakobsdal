@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <link href="~/Umbraco/lib/bootstrap/css/bootstrap.min.3.0.1.css" rel="stylesheet" />
+    <script src="~/Umbraco/lib/bootstrap/js/bootstrap.2.3.2.min.js"></script>
+    <link href="~/style/layoutJd.less" rel="stylesheet" />
+    <script src="~/Umbraco/lib/angular/1.1.5/angular.min.js"></script>
+    <script src="~/Controllers/homePageController.controller.js"></script>
+    <title>Jakobsdals</title>
+</head>
+<body>
+    <div ng-app="jdApp">
+        <div ng-controller="homePageController">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid container-navbar">
+                    <div class="col-xs-2">
+                        <a class="brand-logo" href="#"><img src="~/Media/1001/mainpagelogo.png" /></a>
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="~/Views/ProduktCategory.cshtml">Charkuterier</a></li>
+                                <li><a href="#" ng-click="test()">Om oss</a></li>
+                                <li><a href="#" ng-click="apiTest()">Frågor och svar</a></li>
+                                <li><a href="#">Nyheter och press</a></li>
+                                <li><a href="#">Kontakt</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="renderBody">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

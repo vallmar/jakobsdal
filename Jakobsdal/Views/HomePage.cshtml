@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "~/Views/_layoutJd.cshtml";
+}
+<div class="container-fluid">
+    <span>@Umbraco.Field("title")</span>
+    <p ng-click="apiTest()">Click here for action</p>
+</div>
+<div ng-click="test()">skagjfd</div>

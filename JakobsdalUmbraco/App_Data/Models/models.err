@@ -1,0 +1,6 @@
+Failed to build models.
+Could not load file or assembly 'Microsoft.CodeAnalysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+
+   at Umbraco.ModelsBuilder.Building.CodeParser.ParseWithReferencedAssemblies(IDictionary`2 files)
+   at Umbraco.ModelsBuilder.Umbraco.ModelsBuilderBackOfficeController.GenerateModels(String modelsDirectory, String bin)
+   at Umbraco.ModelsBuilder.Umbraco.ModelsBuilderBackOfficeController.BuildModels()

@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{
+    Layout = "~/Views/_layoutJd.cshtml";
+
+}
+
+
+<div class="col-xs-6">
+    @Umbraco.RenderMacro("ProductsMacro")
+</div>
+
+<div class="col-xs-6" ng-view></div>
+
+
+
