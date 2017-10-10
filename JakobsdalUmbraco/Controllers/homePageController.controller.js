@@ -10,6 +10,7 @@ jdApp.controller('homePageController', ['$scope', '$http', '$routeParams', '$loc
 
     };
 
+
     $scope.apiTest = function () {
         $http.get("Umbraco/Api/DataHandler/GetTemplates").then(function (myString) {
             console.log(myString);
@@ -19,20 +20,23 @@ jdApp.controller('homePageController', ['$scope', '$http', '$routeParams', '$loc
 
 }]);
 
+
+
+
 jdApp.config(function ($routeProvider, $locationProvider) {
 
-    $routeProvider
-     .when('/om-oss', {
-         template: 'ProductsHome.html',
-         controller: 'productsController',
-         resolve: {
-             jdData: function ($route) { $route.current.params.jdData = jdData; },
-             // I will cause a 1 second delay
-             delay: function ($q, $timeout) {
-                 var delay = $q.defer();
-                 $timeout(delay.resolve, 50);
-                 return delay.promise;
-             }
-         }
-     })
+    //$routeProvider
+    // .when('/om-oss', {
+    //     template: 'ProductsHome.html',
+    //     controller: 'productsController',
+    //     resolve: {
+    //         jdData: function ($route) { $route.current.params.jdData = jdData; },
+    //         // I will cause a 1 second delay
+    //         delay: function ($q, $timeout) {
+    //             var delay = $q.defer();
+    //             $timeout(delay.resolve, 50);
+    //             return delay.promise;
+    //         }
+    //     }
+    // })
 });

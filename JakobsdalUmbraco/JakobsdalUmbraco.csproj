@@ -412,6 +412,8 @@
     <Content Include="bin\x86\sqlcese40.dll" />
     <Content Include="Controllers\productsController.controller.js" />
     <Content Include="Controllers\qandaController.controller.js" />
+    <Content Include="JSComponents\instafeed.js-master\instafeed.js" />
+    <Content Include="JSComponents\instafeed.js-master\instafeed.min.js" />
     <Content Include="Media\1001\mainpagelogo.png" />
     <Content Include="Media\1002\produkt-bror-jakobs.jpg" />
     <Content Include="Media\1003\brorjakob-roktskinka-produkt.jpg" />
@@ -609,6 +611,15 @@
     <Content Include="Umbraco\Webservices\UltimatePickerAutoCompleteHandler.ashx" />
     <Content Include="obj\Debug\CoreCompileInputs.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="JSComponents\instafeed.js-master\.gitignore" />
+    <Content Include="JSComponents\instafeed.js-master\.travis.yml" />
+    <Content Include="JSComponents\instafeed.js-master\bower.json" />
+    <Content Include="JSComponents\instafeed.js-master\LICENSE" />
+    <Content Include="JSComponents\instafeed.js-master\Makefile" />
+    <Content Include="JSComponents\instafeed.js-master\package.json" />
+    <Content Include="JSComponents\instafeed.js-master\README.md" />
+    <Content Include="JSComponents\instafeed.js-master\src\instafeed.coffee" />
+    <Content Include="JSComponents\instafeed.js-master\test\instafeedTest.coffee" />
     <None Include="Umbraco\Xslt\Web.config" />
     <Content Include="Views\_layoutJd.cshtml" />
     <Content Include="style\layoutJd.less" />

@@ -5,12 +5,23 @@
     var header = Umbraco.Field("header");
     var bodyText = Umbraco.Field("bodyText");
 }
-
-
+<script src="~/JSComponents/instafeed.js-master/instafeed.min.js"></script>
+@*<script>
+    var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'awesome',
+        clientId: '62b504fd254f41098e7bba75a5836231'
+    });
+    feed.run();
+</script>*@
 
 <div class="row homePageContainer" ng-app="jdApp" ng-controller="homePageController">
     <div class="video-container homePageSection">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/hVIphm3PAhw" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div>
+
     </div>
     @*<div class="homePageSection">
 

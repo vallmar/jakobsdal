@@ -2,21 +2,17 @@
 
 
 @{
-    var selection = Model.Content.Site().Children("produktCategory")
-                        .Where(x => x.IsVisible());
+    //var selection = Model.Content.Site().Children("produktCategory")
+    //                    .Where(x => x.IsVisible());
     var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
-    var productCategorys= umbracoHelper.TypedSearch("produktCategory");  
-    
-    
-    
-    
-     
+    var productCategorys= umbracoHelper.TypedSearch("produktCategory");
+
 }
 
 <div class="productCategoryMacro jdcontent">
     @foreach (var item in productCategorys)
     {
-        <div class="col-xs-12 productCategory">
+        <div class="col-xs-12 productCategoryn containerProductCategory" ng-class="{'categoryActive':currentCategory.Id===@item.Id}">
             @Umbraco.RenderTemplate(item.Id)
         </div>
     }

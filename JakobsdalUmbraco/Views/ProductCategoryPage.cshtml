@@ -5,12 +5,81 @@
 
 }
 
+<div ng-controller="productsController">
 
-<div class="col-xs-6">
-    @Umbraco.RenderMacro("ProductsMacro")
+    <div class="no-padding-l no-padding-r" ng-class="{'col-xs-4':categoryChildren, 'col-xs-8':!categoryChildren}">
+        @Umbraco.RenderMacro("ProductsMacro")
+    </div>
+
+    <div ng-class="{'col-xs-8':categoryChildren, 'col-xs-4':!categoryChildren}">
+        <div id="product jdcontent row">
+            <div ng-repeat="item in currentCategory.Children">           
+                    <div class="col-xs-6 col-md-3">                      
+                            <img ng-if="item.picture" ng-click="showDetailedContentChange(item)" ng-src="{{item.picture}}"  alt="" style="width:100%; min-width:138px" />                       
+                        <div class="overview">
+                            <div class="product-overview-header" ng-click="showDetailedContentChange(item)"><a href="#">{{item.Properties[1].DataValue}}</a></div>
+                            <div class="product-overview-bodytext" ng-bind-html="item.Properties[0].DataValue"></div>
+                        </div>
+                    </div>
+            </div>
+            <div class="detailedContent" ng-if="showDetailedContent">
+                <div class="col-xs-8">
+                    <div>
+                        <span ng-bind-html="activeProduct.detailedText"></span>
+                    </div>
+                </div>
+                <div class="contentDeclaration col-xs-4">
+                    <div class="col-xs-12"><h4>Innehållsförteckning</h4></div>
+                    <div class="col-xs-12">
+                        <span ng-bind-html="activeProduct.maintext"></span>
+                    </div>
+                    <div class="col-xs-12">
+                        <h6>Köttråvarans ursprung: Sverige</h6>
+                    </div>
+                    <div class="col-xs-12">
+                        <h5>Näringsvärden per 100 g</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <div>
+                            <div>Energi</div><div class="contentDecValue" ng-bind-html="activeProduct.energy"></div>
+                        </div>
+                        <div>
+                            <div>Fett</div><div class="contentDecValue" ng-bind-html="activeProduct.Fat"></div>
+                        </div>
+                        <div>
+                            <div>Kolhydrater</div><div class="contentDecValue" ng-bind-html="activeProduct.carbs"></div>
+                        </div>
+                        <div>
+                            <div>Salt</div><div class="contentDecValue" ng-bind-html="activeProduct.salt"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div>
+                            <div class="contentDecHeader">Protein</div><div class="contentDecValue" ng-bind-html="activeProduct.protein"></div>
+                        </div>
+                        <div>
+                            <div class="contentDecHeader">Varav mättat fett</div><div class="contentDecValue" ng-bind-html="activeProduct.saturatedFat"></div>
+                        </div>
+                        <div>
+                            <div class="contentDecHeader">Varav socker</div><div class="contentDecValue" ng-bind-html="activeProduct.whereSugars"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
 </div>
-
-<div class="col-xs-6" ng-view></div>
 
 
 
