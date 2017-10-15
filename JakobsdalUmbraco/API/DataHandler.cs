@@ -64,7 +64,7 @@ namespace JakobsdalUmbraco.API
                 Parent = null,
                 Properties = pc.Properties.Select(p => new JDProperty
                 {
-                    DataValue = p.PropertyTypeAlias=="picture"? p.GetValue<Umbraco.Core.Models.IPublishedContent>().Url: p.DataValue,
+                    DataValue = p.PropertyTypeAlias=="picture" || p.PropertyTypeAlias == "categoryLogo"? p.GetValue<Umbraco.Core.Models.IPublishedContent>().Url: p.DataValue,
                     HasValue = p.HasValue,
                     PropertyTypeAlias = p.PropertyTypeAlias,
                     Value = p.Value as JDProperty

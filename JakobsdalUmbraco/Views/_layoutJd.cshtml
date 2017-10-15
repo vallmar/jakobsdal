@@ -16,59 +16,56 @@
     <title>Jakobsdals</title>
 </head>
 <body>
-    <div ng-app="jdApp">
-        <div ng-controller="homePageController">
-            <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container-fluid container-navbar">
-                    @*<div>
-                        <a class="brand-logo" href="/#"><img src="~/Media/1001/mainpagelogo.png" /></a>*@
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                    @*</div>*@
-                    <div>
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li><a href="~/defaultproductcategorypage/">Charkuterier</a></li>
-                                <li><a href="~/om-oss">Om oss</a></li>
-                                <li><a href="~/fragor-och-svar">Frågor och svar</a></li>
-                                <li><a href="~/nyheter">Nyheter och press</a></li>
-                                <li><a href="~/contact">Kontakt</a></li>
-                            </ul>
-                        </div>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-
+    <div ng-app="jdApp" class="container no-padding-l no-padding-r" style="background-color:white; box-shadow: 0px 0px 100px 10px #888">
+        <div class="logo-container">
+            <a class="brand-logo" href="/#"><img src="~/Media/1001/mainpagelogo.png" /></a>
         </div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid container-navbar">
+                <div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" style="text-align:center" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav" style="display:inline-block; float:none">
+                            <li><a href="~/defaultproductcategorypage/">Produkter</a></li>
+                            <li><a href="~/om-oss">Om oss</a></li>
+                            <li><a href="~/fragor-och-svar">Frågor och svar</a></li>
+                            <li><a href="~/nyheter">Nyheter och press</a></li>
+                            <li><a href="~/contact">Kontakt</a></li>
+                        </ul>
+                    </div>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
         <div class="renderBody">
             @RenderBody()
         </div>
-    </div>
-    <div class="footer">
-        <div class="container-fluid">
-            <div class="col-xs-4">
-                <h3>Om Jakobsdals</h3>
-                <p>Vi är ett familjeföretag i Göteborg som visat kärlek till hantverket i tre generationer. I vår charkdisk har vi ett brett utbud av svenska charkuterier, så vi hoppas att det alltid ska finnas något som faller dig i smaken.</p>
-                <p>Varsågod att prova Mor Matildas kokta skinkor, Bror Jakobs rökta skinkor, Haga-Petters finfina korvar och Charkuteriets klassiska charkprodukter.</p>
-            </div>
-            <div class="col-xs-4">
-                <h3>
-                    Kontakta oss på
-                </h3>
-                <p>Växel 031-712 78 00</p>
-                <p>Fax 031–712 78 99</p>
-                <p>info@jakobsdals.se</p>
-            </div>
-            <div class="col-xs-4">
-                <h3>Följ oss på Facebook</h3>
+        <div class="footer container">
+            <div class="container-fluid">
+                <div class="col-xs-4">
+                    <h3>Om Jakobsdals</h3>
+                    <p>Vi är ett familjeföretag i Göteborg som visat kärlek till hantverket i tre generationer. I vår charkdisk har vi ett brett utbud av svenska charkuterier, så vi hoppas att det alltid ska finnas något som faller dig i smaken.</p>
+                    <p>Varsågod att prova Mor Matildas kokta skinkor, Bror Jakobs rökta skinkor, Haga-Petters finfina korvar och Charkuteriets klassiska charkprodukter.</p>
+                </div>
+                <div class="col-xs-4">
+                    <h3>
+                        Kontakta oss på
+                    </h3>
+                    <p>Växel 031-712 78 00</p>
+                    <p>Fax 031–712 78 99</p>
+                    <p>info@jakobsdals.se</p>
+                </div>
+                <div class="col-xs-4">
+                    <h3>Följ oss på Facebook</h3>
+                </div>
             </div>
         </div>
     </div>

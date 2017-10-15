@@ -1,28 +1,51 @@
-﻿.navbar-default {
-    background-color: #000000;
+﻿body{
+    font-family: "Helvetica",Helvetica,Arial,sans-serif;
+    font-size: 1.3em;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+.navbar-default {
+    background-color: #4c0000;
     max-height: 52.5px;
     border: none;
 }
 
 .navbar {
     border-radius: 0;
+    margin-bottom:0;
 }
+
+.carousel-control.right {
+     background-image: -webkit-linear-gradient(left,rgba(76,0,0,.0001) 0,rgba(76,0,0,.5) 100%); 
+    background-image: -o-linear-gradient(left,rgba(76,0,0,.0001) 0,rgba(76,0,0,.5) 100%);
+     background-image: -webkit-gradient(linear,left top,right top,from(rgba(76,0,0,.0001)),to(rgba(76,0,0,.5))); 
+    background-image: linear-gradient(to right,rgba(76,0,0,.0001) 0,rgba(76, 0, 0, 0.5) 100%);
+    }
+.carousel-control.left {
+    background-image: -webkit-linear-gradient(left,rgba(76,0,0,.5) 0,rgba(76,0,0,.0001) 100%);
+    background-image: -o-linear-gradient(left,rgba(76,0,0,.5) 0,rgba(76,0,0,.0001) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(76,0,0,.5)),to(rgba(76,0,0,.0001)));
+    background-image: linear-gradient(to right,rgba(76,0,0,.5) 0,rgba(76,0,0,.0001) 100%);
+    }
 
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
-    padding-top: 35px;
     height: 0;
     overflow: hidden;
+    margin-left: 15px;
+    margin-right: -16px
 }
 
 .video-container iframe {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    width: 97%;
     height: 100%;
     max-height: 92.9vh;
+    margin-top:10px;
 }
 
 .homePageContainer {
@@ -32,24 +55,28 @@
 .homePageSection {
     height: 100vh;
 }
-
-.brand-logo {
-    position: absolute;
-    z-index: 1;
+.navbar-default .navbar-nav>li>a{
+    color:white;
+     box-shadow:5px 5px 10px 4px #290000
 }
-
+.navbar-default .navbar-nav>li>a:hover{
+    color:#777;
+}
+.logo-container{
+    background-color:#f1ebe3;
+    text-align:center;
+}
 .renderBody {
-    margin-bottom: 10px;
-    margin-top:50px;
+
 }
 .renderBody .jdcontent{
     /*margin-top:110px;*/
 }
-
+.carousel-inner img {
+  margin: auto;
+}
 .navbar-default .navbar-collapse {
     border-color: initial;
-    background-color: #000;
-    margin-left:22%;
 }
 .navbar-default .navbar-collapse.in, .navbar-collapse.collapsing{
         float: right;
@@ -63,5 +90,7 @@
 .footer{
     background-color:black;
     color:white;
-    display:inline-block;
+}
+.border-left-1{
+    border-left:1px solid black;
 }

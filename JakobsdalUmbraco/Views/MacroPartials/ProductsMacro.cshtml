@@ -12,8 +12,69 @@
 <div class="productCategoryMacro jdcontent">
     @foreach (var item in productCategorys)
     {
-        <div class="col-xs-12 productCategoryn containerProductCategory" ng-class="{'categoryActive':currentCategory.Id===@item.Id}">
+        <div class="productCategoryn containerProductCategory" ng-class="{'categoryActive':currentCategory.Id===@item.Id, 'col-xs-12':currentCategory, 'col-sm-6 col-xs-12':!currentCategory}">
             @Umbraco.RenderTemplate(item.Id)
+        </div>
+        <div class="col-xs-12 visible-xs border-bottom margin-bottom" ng-if="currentCategory.Id===@item.Id">
+            <div class="product jdcontent no-padding-l no-padding-r">
+                    <div ng-repeat="item in currentCategory.Children track by $index">
+                        <div class="col-xs-12">
+                            <img ng-if="item.picture" ng-click="showDetailedContentChange(item)" ng-src="{{item.picture}}" alt="" style="width:100%; min-width:138px" />
+                            <div class="overview">
+                                <div class="product-overview-header" ng-click="showDetailedContentChange(item)"><a href="#">{{item.Properties[1].DataValue}}</a></div>
+                                <div class="product-overview-bodytext" ng-bind-html="item.Properties[0].DataValue"></div>
+                            </div>
+                        </div>
+                    <div class="detailedContent container-fluid no-padding-l no-padding-r" ng-if="showDetailedContent && itemIsInArray($index, 1)">
+                        <div class="col-xs-12">
+                            <h4>{{item.Properties[1].DataValue}}</h4>
+                        </div>
+                        <div class="col-xs-12">
+                            <div>
+                                <span ng-bind-html="activeProduct.detailedText"></span>
+                            </div>
+                        </div>
+                        <div class="contentDeclaration col-xs-12 no-padding-l no-padding-r">
+                            <div class="col-xs-12"><h4>Innehållsförteckning</h4></div>
+                            <div class="col-xs-12">
+                                <span ng-bind-html="activeProduct.maintext"></span>
+                            </div>
+                            <div class="col-xs-12">
+                                <h6>Köttråvarans ursprung: Sverige</h6>
+                            </div>
+                            <div class="col-xs-12">
+                                <h5>Näringsvärden per 100 g</h5>
+                            </div>
+                            <div class="col-xs-6">
+                                <div>
+                                    <div><b>Energi</b></div><div class="contentDecValue" ng-bind-html="activeProduct.energy"></div>
+                                </div>
+                                <div>
+                                    <div><b>Fett</b></div><div class="contentDecValue" ng-bind-html="activeProduct.Fat"></div>
+                                </div>
+                                <div>
+                                    <div><b>Kolhydrater</b></div><div class="contentDecValue" ng-bind-html="activeProduct.carbs"></div>
+                                </div>
+                                <div>
+                                    <div><b>Salt</b></div><div class="contentDecValue" ng-bind-html="activeProduct.salt"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div>
+                                    <div class="contentDecHeader"><b>Protein</b></div><div class="contentDecValue" ng-bind-html="activeProduct.protein"></div>
+                                </div>
+                                <div>
+                                    <div class="contentDecHeader"><b>Varav mättat fett</b></div><div class="contentDecValue" ng-bind-html="activeProduct.saturatedFat"></div>
+                                </div>
+                                <div>
+                                    <div class="contentDecHeader"><b>Varav socker</b></div><div class="contentDecValue" ng-bind-html="activeProduct.whereSugars"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+           
+            </div>
         </div>
     }
 </div>

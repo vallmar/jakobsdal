@@ -9,6 +9,7 @@
     var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
     var currentPage = umbracoHelper.AssignedContentItem;
     var picture = currentPage.Properties.FirstOrDefault(i => i.PropertyTypeAlias == "picture").Value.TryConvertTo<dynamic>().Result;
+    var categoryLogo = currentPage.Properties.FirstOrDefault(i => i.PropertyTypeAlias == "categoryLogo").Value.TryConvertTo<dynamic>().Result;
     var childrenUrl = "#";
     if (currentPage.Children.Count() > 0)
     {
@@ -19,10 +20,10 @@
 
 <div ng-click="showCategory(@currentPage.Id)">
     <div class="col-xs-12 no-padding-l no-padding-r">
-        <h4>@header</h4>
-        <img src="@picture.Url" alt="" style="width:100%; max-width:658px;" />
+        @*<h4>@header</h4>*@
+        <img src="@categoryLogo.Url" alt="" style="width:100%; max-width:470px; margin-bottom:10px;" />
     </div>
-    <div class="col-xs-12 no-padding-l no-padding-r">
+    <div class="col-xs-12 no-padding-l no-padding-r" ng-class="{'hidetext':categoryChildren}">
         <span>@bodyText</span>
     </div>
 </div>

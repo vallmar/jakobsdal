@@ -4,11 +4,14 @@ jdApp.controller('productsController', ['$scope', '$http','$location', '$routePa
     $scope.categoryChildren = false;
     $scope.showDetailedContent = false;
     $scope.item = undefined;
+    
     $scope.showDetailedContentChange = function (item) {
         if ($scope.item === item || $scope.item === undefined) {
             $scope.showDetailedContent = !$scope.showDetailedContent;
         }
-
+        else if ($scope.item !== undefined) {
+            $scope.showDetailedContent = true;
+        }
         $scope.activeProduct = item;
         getProductPropertyValues(item);
             //$scope.activeProduct = $scope.productDetails.filter(function (product) {
@@ -33,6 +36,9 @@ jdApp.controller('productsController', ['$scope', '$http','$location', '$routePa
         //$scope.activeProduct.maintext == item.Properties.find(function (prop) {
         //    return prop.PropertyTypeAlias === 'maintext';
         //}).DataValue;
+        $scope.activeProduct.maintext = item.Properties.find(function (prop) {
+            return prop.PropertyTypeAlias === 'maintext';
+        }).DataValue;
         $scope.activeProduct.energy = item.Properties.find(function (prop) {
             return prop.PropertyTypeAlias === 'energy';
         }).DataValue;
@@ -54,9 +60,17 @@ jdApp.controller('productsController', ['$scope', '$http','$location', '$routePa
         $scope.activeProduct.whereSugars = item.Properties.find(function (prop) {
             return prop.PropertyTypeAlias === 'whereSugars';
         }).DataValue;
+        $scope.activeProduct.whereSugars = item.Properties.find(function (prop) {
+            return prop.PropertyTypeAlias === 'whereSugars';
+        }).DataValue;
     }
 
     $scope.showCategory = function (categoryId) {
+        if ($scope.currentCategory && categoryId === $scope.currentCategory.Id) {
+            $scope.currentCategory = undefined;
+            $scope.categoryChildren = false;
+            return;
+        }
         $scope.showDetailedContent = false;
         $scope.currentCategory = $scope.allCategories.CategoryList.find(function (category) {
             return category.Id === categoryId;
@@ -67,14 +81,22 @@ jdApp.controller('productsController', ['$scope', '$http','$location', '$routePa
             }).DataValue;
         });
         $scope.categoryChildren = true;
+
+        $scope.numberOfchildren = Math.ceil(($scope.currentCategory.Children.length / 2));
+    }
+
+    $scope.itemIsInArray = function (indexUi, indexIndicator) {
+
+        var index = $scope.currentCategory.Children.findIndex(function (product) {
+            return $scope.activeProduct == product;
+        })
+        return Math.ceil(index / indexIndicator) == indexUi;
     }
 
     function getAllCategories() {
         $http({ method: 'GET', url: '/Umbraco/Api/DataHandler/GetProductCategories' }).then(function (response) {
-            var ehy=response.data;
-            var jsonDat = JSON.parse(ehy);
-            $scope.allCategories = JSON.parse(jsonDat);
-
+            var productCategoriesJson=response.data;
+            $scope.allCategories = JSON.parse(JSON.parse(productCategoriesJson));
         })
     }
 

@@ -1,7 +1,8 @@
 ﻿var jdApp = angular.module('jdApp', ['ngSanitize']);
 var jdData = {};
 jdApp.controller('homePageController', ['$scope', '$http', '$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
-    jdData={};
+    jdData = {};
+    $scope.lastThreeInstaPhotos = [];
     $scope.goto = function (pictureUrl, header, bodyText, childrenUrl) {
         jdData={pictureUrl:pictureUrl, header:header, bodyText:bodyText, childrenUrl:childrenUrl}
         $location.path("/om-oss");
@@ -10,13 +11,27 @@ jdApp.controller('homePageController', ['$scope', '$http', '$routeParams', '$loc
 
     };
 
+    var userFeed = new Instafeed({
+        get: 'user',
+        userId: '192808799',
+        accessToken: '192808799.1677ed0.7420cbb92d8e4c0b854683f84362e042',
+        resolution: 'standard_resolution',
+        target:'myInstafedd',
+        success: function (json) {
+            $scope.lastThreeInstaPhotos.push(json.data[0]);
+            $scope.lastThreeInstaPhotos.push(json.data[1]);
+            $scope.lastThreeInstaPhotos.push(json.data[2]);
+            window.location.href = "#home";         
+        }
+    });
+    userFeed.run();
 
-    $scope.apiTest = function () {
-        $http.get("Umbraco/Api/DataHandler/GetTemplates").then(function (myString) {
-            console.log(myString);
-        })
+    $scope.fetchInst = function (input) {
+        if (input === undefined) {
+            return false;
+        }
+        return input;
     }
-    $scope.windowWidth = "760";
 
 }]);
 
