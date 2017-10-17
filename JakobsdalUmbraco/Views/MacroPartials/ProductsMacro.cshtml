@@ -18,7 +18,7 @@
         <div class="col-xs-12 visible-xs border-bottom margin-bottom" ng-if="currentCategory.Id===@item.Id">
             <div class="product jdcontent no-padding-l no-padding-r">
                     <div ng-repeat="item in currentCategory.Children track by $index">
-                        <div class="col-xs-12">
+                        <div class="col-xs-6">
                             <img ng-if="item.picture" ng-click="showDetailedContentChange(item)" ng-src="{{item.picture}}" alt="" style="width:100%; min-width:138px" />
                             <div class="overview">
                                 <div class="product-overview-header" ng-click="showDetailedContentChange(item)"><a href="#">{{item.Properties[1].DataValue}}</a></div>
