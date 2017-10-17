@@ -1,10 +1,11 @@
 ﻿var jdApp = angular.module('jdApp');
 
-jdApp.controller('productsController', ['$scope', '$http','$location', '$routeParams', function ($scope, $http, $location, $routeParams) {
+jdApp.controller('productsController', ['$scope', '$http', '$location', '$routeParams', function ($scope, $http, $location, $routeParams, bsScreenSize) {
     $scope.categoryChildren = false;
     $scope.showDetailedContent = false;
     $scope.item = undefined;
-    
+    $scope.screenSize = bsScreenSize;
+
     $scope.showDetailedContentChange = function (item) {
         if ($scope.item === item || $scope.item === undefined) {
             $scope.showDetailedContent = !$scope.showDetailedContent;
@@ -82,7 +83,7 @@ jdApp.controller('productsController', ['$scope', '$http','$location', '$routePa
         });
         $scope.categoryChildren = true;
 
-        $scope.numberOfchildren = Math.ceil(($scope.currentCategory.Children.length / 2));
+        $scope.numberOfchildren = Math.ceil(($scope.currentCategory.Children.length / 4));
     }
 
     $scope.itemIsInArray = function (indexUi, indexIndicator) {
@@ -90,7 +91,7 @@ jdApp.controller('productsController', ['$scope', '$http','$location', '$routePa
         var index = $scope.currentCategory.Children.findIndex(function (product) {
             return $scope.activeProduct == product;
         })
-        return Math.ceil(index / indexIndicator) == indexUi;
+        return Math.floor(index / indexIndicator) == indexUi;
     }
 
     function getAllCategories() {

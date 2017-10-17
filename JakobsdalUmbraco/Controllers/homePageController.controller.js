@@ -1,4 +1,4 @@
-﻿var jdApp = angular.module('jdApp', ['ngSanitize']);
+﻿var jdApp = angular.module('jdApp', ['ngSanitize', 'bs.screenSize']);
 var jdData = {};
 jdApp.controller('homePageController', ['$scope', '$http', '$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
     jdData = {};
